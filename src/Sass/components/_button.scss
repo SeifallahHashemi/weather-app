@@ -1,0 +1,16 @@
+@use "../abstracts/variables" as *;
+button {
+  appearance: none;
+  border: none;
+  outline: none;
+  color: $Dark;
+  font-size: 2rem;
+  padding: 1.6rem;
+  cursor: pointer;
+  transition: all .4s;
+
+  &:hover,
+  &:focus{
+    opacity: .85;
+  }
+}

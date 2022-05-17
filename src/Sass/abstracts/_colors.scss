@@ -1,0 +1,23 @@
+$Colors: (
+        primary: (
+                100: hsl(14, 100%, 80%),
+                200: hsl(14, 100%, 70%),
+                300: hsl(14, 100%, 60%),
+                400: hsl(12, 100%, 43%),
+                500: hsl(14, 100%, 20%),
+        ),
+        calculate: (
+                "primary": hsl(346, 84%, 61%),
+                "secondary": hsl(42, 100%, 70%),
+                "tertiary": hsl(164, 95%, 43%),
+                "quaternary": hsl(195, 83%, 38%),
+                "protein": hsl(195, 83%, 16%),
+        ),
+        calculator: (
+                "primary": hsl(152, 100%, 38%),
+                "secondary": hsl(174, 100%, 35%),
+                "tertiary": hsl(194, 100%, 40%),
+                "quaternary": hsl(195, 100%, 91%),
+                "protein": hsl(201, 100%, 23%),
+        )
+);
