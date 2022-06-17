@@ -4,7 +4,7 @@ Implement by `React.js and HTML and SCSS`<br/>
 third party libraries: `date-fns, React-icons`<br/>
 React Features: **StateManagement - ReactContext**<br/>
 React Hooks: `useState, useContext`
-****
+<hr />
 
 ### Image:
 
