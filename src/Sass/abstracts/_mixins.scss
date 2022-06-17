@@ -1,0 +1,8 @@
+@mixin flexBox($f_Direction: column, $JC: center, $AI: center, $GAP: 0, $f_Wrap: nowrap) {
+  display: flex;
+  flex-direction: $f_Direction;
+  justify-content: $JC;
+  align-items: $AI;
+  gap: #{$GAP}rem;
+  flex-wrap: $f_Wrap;
+}

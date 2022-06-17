@@ -1,0 +1,96 @@
+@use "../abstracts/index" as *;
+@use "../vendors/index" as Res;
+.sidebar {
+  display: flex;
+  flex-flow: column nowrap;
+  transition: transform .3s .6s ease-out;
+
+  .header {
+    flex: 0 0 100px;
+    border-bottom: .1rem solid #5156F6;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-inline: .4em;
+    position: relative;
+    @include Res.media(">=320px", "<=480px") {
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+      & svg:nth-of-type(2) {
+        position: absolute;
+        top: 53%;
+        right: 3%;
+        transform: translate(-3%, -53%);
+        width: 1.65em;
+        height: 1.65em;
+      }
+    }
+    @include Res.media(">480px", "<=tablet") {
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+      & svg:nth-of-type(2) {
+        position: absolute;
+        top: 53%;
+        right: 3%;
+        transform: translate(-3%, -53%);
+        width: 1.65em;
+        height: 1.65em;
+      }
+    }
+    & svg:nth-of-type(1) {
+      fill: $Primary;
+      width: 2.5em;
+      height: 2.5em;
+    }
+    & svg:nth-of-type(2) {
+      display: none;
+      &:hover,
+      &:active{
+        fill: #F66B0E;
+      }
+      @include Res.media(">=320px", "<=480px") {
+        display: inline-block;
+      }
+    }
+    & svg:nth-of-type(3) {
+      &:hover,
+      &:active{
+        fill: #F66B0E;
+      }
+      transform: scale(0);
+      position: absolute;
+      top: 0;
+      right: 0;
+      //transition: all .3s .3s ease-out,right .3s .6s ease-out;
+      transition: all .3s .3s ease-out,right .3s 0s ease-out;
+      fill: #feac00;
+    }
+    & h1 {
+      font-size: 1.6em;
+      text-transform: capitalize;
+      white-space: nowrap;
+      color: $Light;
+    }
+  }
+  @include Res.media(">=320px", "<=480px") {
+    &.active {
+      transform: translateX(-100%);
+      transition: transform .3s 0s ease-out;
+      & svg:nth-of-type(3) {
+        display: inline-block;
+        top: 20%;
+        right: -8%;
+        z-index: 10000;
+        background: #ededef;
+        padding: .2em .4em;
+        width: 2em;
+        height: 2em;
+        transform: scale(1);
+        //transition: all .3s .3s ease-out,right .3s 0s ease-out;
+        transition: all .3s .3s ease-out,right .3s .6s ease-out;
+      }
+    }
+  }
+}

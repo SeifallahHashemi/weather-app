@@ -1,0 +1,21 @@
+@use "../vendors/index" as Res;
+.content {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 60px 380px auto;
+  &__current__weather {
+    grid-column: 1/-1;
+    grid-row: 3 / 4;
+  }
+  @include Res.media(">=320px", "<=480px") {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 60px minmax(400px, 1fr) 200px;
+  }
+  @include Res.media(">480px", "<=tablet") {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 60px minmax(520px, 1fr) 200px;
+  }
+  @include Res.media(">tablet", "<=desktop") {
+    grid-template-rows: 60px 70rem auto;
+  }
+}

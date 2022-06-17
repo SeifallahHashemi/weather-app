@@ -1,0 +1,43 @@
+@use "sass:string";
+// Variables
+$Base: 1rem;
+
+// Map
+$sizes: (
+        "size-1": $Base * 0.25,
+        "size-2": $Base * 0.5,
+        "size-3": $Base * 0.75,
+        "size-4": $Base * 1,
+        "size-5": $Base * 1.5,
+        "size-6": $Base * 2,
+        "size-7": $Base * 2.5,
+        "size-8": $Base * 3,
+        "size-9": $Base * 3.5,
+);
+
+$sides: inline, inline-start, inline-end, block, block-start, block-end;
+
+@each $size, $value in $sizes {
+  $number: string.slice($size, 6);
+  @debug $number;
+  .p {
+    &-#{$number} {
+      padding: $value;
+    }
+    @each $side in $sides {
+      &-#{$side}-#{$number} {
+        padding-#{$side}: $value;
+      }
+    }
+  }
+  .m {
+    &-#{$number} {
+      margin: $value;
+    }
+    @each $side in $sides {
+      &-#{$side}-#{$number} {
+        margin-#{$side}: $value;
+      }
+    }
+  }
+}

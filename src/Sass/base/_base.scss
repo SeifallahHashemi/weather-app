@@ -1,4 +1,5 @@
 @use "../abstracts/index" as *;
+@use "../vendors/index" as Res;
 *,
 *::after,
 *::before {
@@ -8,6 +9,9 @@
 }
 html {
   font-size: 62.5%;
+  @include Res.media(">=320px", "<=480px") {
+    font-size: 50%;
+  }
 }
 body {
   min-height: 100vh;
@@ -15,4 +19,7 @@ body {
 }
 a {
   text-decoration: none;
+}
+ul, li {
+  list-style: none;
 }

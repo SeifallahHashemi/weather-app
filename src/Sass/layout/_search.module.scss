@@ -1,0 +1,90 @@
+@use "../vendors/index" as Res;
+.form__container {
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding-inline-start: 1.8rem;
+  .form {
+    flex: 1 1 50%;
+    width: 50%;
+    position: relative;
+
+    &__input {
+      background: transparent;
+      border: none;
+      outline: none;
+      border-bottom: 1px solid hsl(222, 13%, 84%);
+      width: 70%;
+      height: 2.8rem;
+      line-height: 2.8rem;
+      margin-inline-start: 1.5rem;
+      position: absolute;
+      top: 20%;
+      caret-color: hsl(222, 13%, 85%);
+      color: hsl(255, 50%, 85%);
+      &:focus ~ label {
+        top: -30%;
+        color: hsl(0, 0%, 40%);
+      }
+    }
+    &__label {
+      font-size: 1.4rem;
+      position: absolute;
+      color: hsla(222, 13%, 65%, .37);
+      top: 18%;
+      left: 4.7rem;
+      transition: .2s ease;
+      cursor: text;
+      pointer-events: none;
+    }
+    &__icon {
+      box-sizing: border-box;
+      background: #F3F6FF;
+      stroke: #7D81F8;
+      padding: .6rem .8rem;
+      font-size: 2em;
+      border-radius: .4rem;
+      transform: translateY(20%);
+      cursor: pointer;
+    }
+  }
+  h2 {
+    flex: 0 1 30%;
+    width: 30%;
+    text-transform: capitalize;
+  }
+  @include Res.media(">=320px", "<=480px") {
+    padding-inline-start: 4rem;
+    & h2 {
+      font-size: 1.7rem;
+      text-transform: capitalize;
+      line-height: 1.2;
+    }
+    .form{
+      &__label {
+        left: 5rem;
+      }
+    }
+  }
+  @include Res.media(">480px", "<=tablet") {
+    & h2 {
+      font-size: 1.7rem;
+      text-transform: capitalize;
+      line-height: 1.2;
+    }
+    .form{
+      &__label {
+        left: 5rem;
+      }
+    }
+  }
+  @include Res.media(">tablet", "<=desktop") {
+    .form{
+      &__label {
+        left: 4.7rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+@use "../abstracts/index" as *;
+@use "../vendors/index" as Res;
+.current__weather {
+  overflow: hidden;
+  & h3 {
+    flex: 0 0 auto;
+    height: 12%;
+    background: #fff;
+    padding-inline-start: 1.5rem;
+  }
+  &__listItems {
+    @include flexBox(row, flex-start, center, 1.2, nowrap);
+    height: 16.7rem;
+    padding-inline: 1.5rem;
+    padding-block-end: .2em;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline-start: .2rem;
+    & > li {
+      scroll-snap-align: start;
+    }
+
+    &::-webkit-scrollbar {
+      height: 1rem;
+    }
+    &::-webkit-scrollbar-track {
+      background: rgba(map-get($Colors, "shades", "gray-8"), .5);
+      border-radius: 2rem;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $thumbBG;
+      border-radius: 6px;
+      border: 3px solid $scrollbarBG;
+    }
+    @include Res.media(">=320px", "<=480px") {
+      height: 21.5rem;
+    }
+  }
+}

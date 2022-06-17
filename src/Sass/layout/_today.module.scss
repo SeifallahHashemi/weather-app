@@ -1,0 +1,131 @@
+@use "../abstracts/index" as *;
+@use "../vendors/index" as Res;
+.today {
+  flex: 1 0 150px;
+  &__weather {
+    width: min(200px, 90%);
+    height: 96%;
+    background-color: #fff;
+    margin: 0 auto;
+    border-radius: 6px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 35%) 30%;
+    padding-block-end: .5rem;
+    &--header {
+      grid-column: 1 / -1;
+      grid-row: 1 / 2;
+      display: flex;
+      & > div {
+        flex: 0 1 auto;
+        width: 50%;
+        display: flex;
+      }
+      & > div:first-of-type {
+        display: flex;
+        justify-content: flex-end;
+        padding-inline-end: .6em;
+        svg{
+          width: 3em;
+          height: 3em;
+          fill: $Secondary;
+        }
+      }
+      & > div:last-of-type {
+        display: flex;
+        flex-direction: column;
+        span:first-of-type {
+          font-size: 1.4em;
+          font-weight: 600;
+          line-height: 2;
+        }
+        span:not(:first-of-type) {
+          line-height: 1.4;
+          font-weight: lighter;
+          font-family: "Poppins", sans-serif;
+          font-size: .8em;
+          color: darken($Light, 45%);
+        }
+      }
+    }
+    &--content {
+      grid-column: 1 / -1;
+      grid-row: 2 / 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      strong {
+        font-family: "Oswald", sans-serif;
+        font-weight: 900;
+        font-size: 1.4em;
+        line-height: 1.8;
+      }
+      p {
+        line-height: 1.3;
+        font-size: .9em;
+        font-weight: 700;
+        color: darken($Light, 80%);
+      }
+      P:last-of-type {
+        font-weight: 400;
+        color: darken($Light, 50%);
+      }
+    }
+    &--footer {
+      grid-column: 1 / -1;
+      grid-row: 3 / 4;
+      @include flexBox(column, center, flex-start, 0.4);
+      position: relative;
+      padding-inline-start: .9rem;
+    }
+    &--control {
+      @include flexBox(column, center, flex-start);
+      & > div {
+        flex: 1 1 auto;
+      }
+      &:nth-of-type(2) div.today__weather--progress span::after {
+        width: 33%;
+      }
+    }
+    &--progress {
+      //position: relative;
+      span {
+        position: absolute;
+        display: inline-block;
+        width: 80%;
+        height: .5rem;
+        background: lighten($Dark, 80%);
+        border-radius: .6rem;
+
+        & > span {
+          position: absolute;
+          width: 66%;
+          height: .5rem;
+          background: #F66B0E;
+          border-radius: .6rem;
+          z-index: 1000;
+        }
+        //&::after {
+        //  //content: "";
+        //  //position: absolute;
+        //  //width: 66%;
+        //  //height: .5rem;
+        //  //background: #F66B0E;
+        //  //border-radius: .6rem;
+        //  //z-index: 1000;
+        //}
+      }
+    }
+    &--status {
+      width: 12.3em;
+      @include flexBox(row, space-between, center);
+      font-size: .8em;
+    }
+    @include Res.media(">=320px", "<=480px") {
+      &--status {
+        width: 20rem;
+      }
+    }
+  }
+}

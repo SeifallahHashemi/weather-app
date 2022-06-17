@@ -1,0 +1,145 @@
+@use "../abstracts/index" as *;
+@use "../vendors/index" as Res;
+.citiesForecast {
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+  overflow: hidden;
+  @include flexBox(row, space-evenly, center, 0, wrap);
+  //display: flex;
+  //justify-content: space-evenly;
+  //align-items: center;
+  //flex-wrap: wrap;
+
+  .city {
+    flex: 0 1 auto;
+    width: 200px;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    clip-path: polygon(100% 0, 100% 96%, 74% 96%, 31% 96%, 0 96%, 0 0);
+    //background-color: map-get($Colors, "calculator", "tertiary");
+
+    &__picture {
+      width: 100%;
+      height: 100%;
+
+      img {
+        width: 100%;
+        min-height: 100%;
+        object-fit: cover;
+      }
+    }
+    & figcaption {
+      position: absolute;
+      inset: 0;
+      @include flexBox(column, center, center);
+      color: #fdfdfd;
+      font-weight: map-get($fontWeight, "N-W");
+      opacity: 0;
+      transition: .4s ease-out;
+      span.lastUpdate {
+        overflow: hidden;
+        color: #20282f;
+        width: 0;
+        transform-origin: left center;
+      }
+    }
+    .weather__description {
+      position: absolute;
+      inset: 0;
+      //background-color: hsla(200, 10%, 10%, .5);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      &__icon {
+        //display: flex;
+        //justify-content: flex-end;
+        //flex-direction: row;
+        //gap: .5rem;
+        @include flexBox(row, flex-end, stretch, 0.5);
+        span {
+          color: hsl(255, 0%, 90%);
+          font-family: "Oswald", sans-serif;
+          font-weight: 900;
+          font-size: .8em;
+        }
+        svg {
+          width: 2rem;
+          height: 2rem;
+          fill: #f3e32b;
+        }
+      }
+      &__city {
+        @include flexBox(row, center, center);
+        strong {
+          color: hsl(255, 10%, 92%);
+          font-family: "Poppins", sans-serif;
+          transform: translateY(-5px);
+          text-transform: capitalize;
+          &:first-letter {
+            color: hsl(60, 100%, 50%);
+          }
+        }
+      }
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: hsla(255, 50%, 99%, .5);
+      transform: scale3d(1, 1.4, 1) rotate3d(0, 0, 1, 45deg) translate3d(0, -150%, 0);
+      transition: transform .6s;
+    }
+    &:hover {
+      &::before{
+        transform: scale3d(1, 1.4, 1) rotate3d(0, 0, 1, 45deg) translate3d(0, 150%, 0);
+        z-index: 10000000000;
+      }
+      img {
+        backface-visibility: hidden;
+        animation: imageAnimation 3s linear infinite alternate;
+      }
+      figcaption {
+        opacity: 1;
+      }
+      figcaption span {
+        border-right: .15em solid #20282f;
+        animation: textAnimation 2s steps(12, end) infinite alternate;
+      }
+    }
+  }
+  @include Res.media(">=320px", "<=480px") {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    place-content: center;
+    place-items: center;
+    & .city {
+      flex: none;
+      width: 80%;
+    }
+  }
+  @include Res.media(">tablet", "<=desktop") {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 365px));
+    place-content: center;
+    place-items: center;
+    overflow-y: auto;
+    & .city {
+      flex: none;
+      width: 80%;
+    }
+  }
+}
+@keyframes imageAnimation {
+  0%{
+    transform: scale(1);
+    filter: hue-rotate(0deg);
+  }
+  100%{
+    transform: scale(1.1);
+    filter: hue-rotate(360deg);
+  }
+}
+@keyframes textAnimation {
+  from { width: 0 }
+  to { width: 10rem }
+}

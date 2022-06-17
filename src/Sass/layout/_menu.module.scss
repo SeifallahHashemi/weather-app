@@ -1,0 +1,33 @@
+@use "../abstracts/index" as * ;
+.nav {
+  flex: 1 0 200px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  &__list {
+    flex: 1 1 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    list-style: none;
+
+    &__item {
+      flex: 1 0 auto;
+      align-self: stretch;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 2rem;
+      padding-inline: 100% - 80%;
+      svg {
+        fill: $Light;
+        width: 2rem;
+        height: 2rem;
+      }
+      &__link {
+        color: $Light;
+      }
+    }
+  }
+}
