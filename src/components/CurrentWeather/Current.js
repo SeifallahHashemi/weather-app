@@ -1,3 +1,4 @@
+import React from "react";
 import {format} from "date-fns";
 import classes from "../../Sass/layout/_current.module.scss";
 
@@ -14,4 +15,4 @@ const Current = (props) => {
       </li>
   )
 };
-export default Current;
+export default React.memo(Current);

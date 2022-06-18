@@ -1,3 +1,4 @@
+import React from "react";
 import {WiThermometer} from "react-icons/wi";
 import { IoClose } from "react-icons/io5";
 import {HiMenu} from "react-icons/hi";
@@ -15,4 +16,4 @@ const Header = (props) => {
       </div>
   )
 };
-export default Header;
+export default React.memo(Header);

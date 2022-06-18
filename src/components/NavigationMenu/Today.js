@@ -1,3 +1,4 @@
+import React from "react";
 import {format} from 'date-fns';
 import classes from "../../Sass/layout/_today.module.scss";
 import {WiDaySnowThunderstorm} from "react-icons/wi";
@@ -61,4 +62,4 @@ const Today = () => {
         </div>
     )
 };
-export default Today;
+export default React.memo(Today);

@@ -1,9 +1,10 @@
+import React from "react";
 import { MdOutlineDashboardCustomize, MdBarChart } from "react-icons/md";
 import { SiGooglemaps } from "react-icons/si";
 import { BsFillCalendarFill } from "react-icons/bs";
 import { AiFillSetting } from "react-icons/ai";
 import classes from "../../Sass/layout/_menu.module.scss"
-const Menu = (props) => {
+const Menu = () => {
   return(
       <nav className={classes.nav}>
           <ul className={classes.nav__list}>
@@ -31,4 +32,4 @@ const Menu = (props) => {
       </nav>
   )
 };
-export default Menu;
+export default React.memo(Menu);

@@ -1,3 +1,4 @@
+import React from "react";
 import classes from '../Sass/layout/_navigationMenu.module.scss';
 import Header from "./NavigationMenu/Header";
 import Menu from "./NavigationMenu/Menu";
@@ -15,4 +16,4 @@ const NavigationMenu = (props) => {
         </div>
     )
 };
-export default NavigationMenu;
+export default React.memo(NavigationMenu);

@@ -1,3 +1,4 @@
+import React from "react";
 import {FiSearch} from "react-icons/fi";
 import classes from "../Sass/layout/_search.module.scss";
 import {useContext, useState} from "react";
@@ -18,7 +19,7 @@ const Search = () => {
     return (
         <div className={classes.form__container}>
             <form className={classes.form} onSubmit={submitHandler}>
-                <FiSearch className={classes.form__icon}/>
+                <FiSearch className={classes.form__icon} onClick={submitHandler}/>
                 <input type="text" id="searchInput" className={classes.form__input} value={search}
                        onChange={changeHandler}/>
                 <label htmlFor="searchInput" className={classes.form__label}>Search</label>
@@ -27,4 +28,4 @@ const Search = () => {
         </div>
     )
 };
-export default Search;
+export default React.memo(Search);

@@ -1,3 +1,4 @@
+import React from "react";
 import classes from "../../Sass/layout/_currentWeather.module.scss";
 import Card from "../UI/Card";
 import ForecastList from "./ForecastList";
@@ -16,4 +17,4 @@ const CurrentWeather = () => {
         </Card>
     )
 };
-export default CurrentWeather;
+export default React.memo(CurrentWeather);

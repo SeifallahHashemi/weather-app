@@ -1,3 +1,4 @@
+import React from "react";
 import classes from "../../Sass/layout/_content.module.scss";
 import Search from "../Search";
 import CitiesForecast from "./CitiesForecast";
@@ -24,4 +25,4 @@ const Content = (props) => {
       </section>
   )
 };
-export default Content;
+export default React.memo(Content);

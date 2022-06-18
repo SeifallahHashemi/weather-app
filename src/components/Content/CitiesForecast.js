@@ -1,3 +1,4 @@
+import React from "react";
 import classes from "../../Sass/layout/_citiesForecast.module.scss";
 import china from '../../assets/china.jpg';
 import china_o from '../../assets/china_o.jpg';
@@ -50,4 +51,4 @@ const CitiesForecast = () => {
       </section>
   )
 };
-export default CitiesForecast;
+export default React.memo(CitiesForecast);

@@ -1,3 +1,4 @@
+import React from "react";
 import classes from "../../Sass/layout/_Independent.module.scss";
 import useRequest from "../../hooks/useRequest";
 import {format} from "date-fns";
@@ -17,4 +18,4 @@ const Independent = (props) => {
       </>
   )
 };
-export default Independent;
+export default React.memo(Independent);

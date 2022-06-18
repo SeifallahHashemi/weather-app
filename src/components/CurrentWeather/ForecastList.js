@@ -1,10 +1,10 @@
-import {Fragment, useContext} from "react";
+import React, {Fragment, useContext, useMemo} from "react";
 import Current from "./Current";
 import RequestContext from "../../store/request-context";
 
 const ForecastList = () => {
     const reqCtx = useContext(RequestContext);
-    const forecastDay = reqCtx.receivedData?.forecast?.forecastday[0]?.hour;
+    const forecastDay = useMemo(() => reqCtx.receivedData?.forecast?.forecastday[0]?.hour, [reqCtx]);
     return(
       <Fragment>
           {forecastDay.map(item => {
@@ -15,4 +15,4 @@ const ForecastList = () => {
       </Fragment>
   )
 };
-export default ForecastList;
+export default React.memo(ForecastList);
